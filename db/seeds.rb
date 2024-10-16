@@ -4,6 +4,25 @@
 #
 # Example:
 #
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
+#   ['Action', 'Comedy', 'Drama', 'Horror'].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+puts 'Cleaning the database...'
+Restaurant.destroy_all
+
+puts 'Creating restaurants...'
+
+restaurants = [
+  { name: 'Sichuan Delight', address: '123 Main St, Toronto', phone_number: '416-123-4567', category: 'chinese' },
+  { name: 'Pasta Heaven', address: '456 King St, Toronto', phone_number: '416-234-5678', category: 'italian' },
+  { name: 'Sushi World', address: '789 Queen St, Toronto', phone_number: '416-345-6789', category: 'japanese' },
+  { name: 'Le Bistro', address: '101 Prince St, Montreal', phone_number: '514-123-4567', category: 'french' },
+  { name: 'Belgian Waffles', address: '202 Sherbrooke St, Montreal', phone_number: '514-234-5678', category: 'belgian' }
+]
+
+restaurants.each do |restaurant|
+  Restaurant.create!(restaurant)
+end
+
+puts 'Finished creating restaurants!'
