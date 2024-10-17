@@ -1,9 +1,13 @@
-<div class = "m-5">
+<div class="m-5">
   <%= simple_form_for(@restaurant) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :phone_number %>
-  <%= f.input :category %>
-  <%= f.submit 'Create new restaurant', class: "btn btn-primary"%>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :phone_number %>
+    <%= f.input :category %>
+
+    <div class="d-flex justify-content-between">
+      <%= f.submit 'Create new restaurant', class: "btn btn-primary" %>
+      <%= link_to 'Cancel', restaurants_path, class: "btn btn-secondary" %>
+    </div>
   <% end %>
 </div>

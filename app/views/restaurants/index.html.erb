@@ -9,7 +9,7 @@
       <ul class="list-group">
         <% @restaurants.each do |restaurant| %>
           <li class="list-group-item">
-            <strong><%= restaurant.name %></strong>
+            <strong><%= link_to restaurant.name, restaurant_path(restaurant) %></strong>
           </li>
         <% end %>
       </ul>

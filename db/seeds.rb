@@ -10,6 +10,7 @@
 
 puts 'Cleaning the database...'
 Restaurant.destroy_all
+Review.destroy_all # Make sure to clean the reviews as well
 
 puts 'Creating restaurants...'
 
@@ -22,7 +23,16 @@ restaurants = [
 ]
 
 restaurants.each do |restaurant|
-  Restaurant.create!(restaurant)
+  new_restaurant = Restaurant.create!(restaurant)
+
+  # Generate a random number of reviews between 2 and 5
+  rand(2..5).times do
+    Review.create!(
+      rating: rand(1..5),  # Random rating between 1 and 5
+      content: Faker::Restaurant.review,  # Random content (you need to add the 'faker' gem for this)
+      restaurant: new_restaurant
+    )
+  end
 end
 
-puts 'Finished creating restaurants!'
+puts 'Finished creating restaurants and reviews!'

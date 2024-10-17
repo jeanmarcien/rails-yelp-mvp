@@ -3,6 +3,10 @@
     <div class="card-header bg-primary text-white">
       <h2 class="mb-0"><%= @restaurant.name %></h2>
     </div>
+    <div class="m-3">
+      <%= link_to 'Back to Home', restaurants_path, class: 'btn btn-secondary' %>
+    </div>
+
     <div class="card-body">
       <p class="mb-2"><strong>Address:</strong> <%= @restaurant.address %></p>
       <p class="mb-2"><strong>Phone Number:</strong> <%= @restaurant.phone_number %></p>
@@ -23,7 +27,7 @@
         <p class="mt-4">No reviews available for this restaurant.</p>
       <% end %>
 
-      <div class="mt-4">
+      <div class="mt-4 d-flex justify-content-end">
         <%= link_to 'Add Review', new_restaurant_review_path(@restaurant), class: 'btn btn-primary' %>
       </div>
     </div>
