@@ -1,0 +1,22 @@
+<div class="container my-5">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      <h1 class="mb-0">New Review for <%= @restaurant.name %></h1>
+    </div>
+    <div class="card-body">
+      <div class="mb-4">
+        <%= link_to 'Back to Restaurant', restaurant_path(@restaurant), class: 'btn btn-secondary' %>
+      </div>
+
+      <%= simple_form_for [@restaurant, @review] do |f| %>
+        <div class="form-group">
+          <%= f.input :rating, label: 'Rating', input_html: { class: 'form-control' } %>
+        </div>
+        <div class="form-group">
+          <%= f.input :content, label: 'Review', input_html: { class: 'form-control', rows: 4 } %>
+        </div>
+        <%= f.submit "Submit Review", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

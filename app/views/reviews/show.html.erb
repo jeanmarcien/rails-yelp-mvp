@@ -1,16 +1,10 @@
 <div class="container my-5">
   <div class="card">
     <div class="card-header bg-primary text-white">
-      <h2 class="mb-0"><%= @restaurant.name %></h2>
+      <h2 class="mb-0">Reviews for <%= @restaurant.name %></h2>
     </div>
     <div class="card-body">
-      <p class="mb-2"><strong>Address:</strong> <%= @restaurant.address %></p>
-      <p class="mb-2"><strong>Phone Number:</strong> <%= @restaurant.phone_number %></p>
-      <p class="mb-0"><strong>Category:</strong> <%= @restaurant.category %></p>
-
       <% if @restaurant.reviews.any? %>
-        <hr>
-        <h5 class="mt-4">Reviews</h5>
         <ul class="list-group">
           <% @restaurant.reviews.each do |review| %>
             <li class="list-group-item">
@@ -20,9 +14,8 @@
           <% end %>
         </ul>
       <% else %>
-        <p class="mt-4">No reviews available for this restaurant.</p>
+        <p>No reviews available for this restaurant.</p>
       <% end %>
-
       <div class="mt-4">
         <%= link_to 'Add Review', new_restaurant_review_path(@restaurant), class: 'btn btn-primary' %>
       </div>
